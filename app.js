@@ -84,8 +84,9 @@ if (Meteor.isClient) {
         return;
       },
       'click #clear': function(event) {
-        Meteor.call('clear');
-        return;
+        navigator.contacts.pickContact(function(contact){
+          console.log('The following contact has been selected:' + JSON.stringify(contact));
+      });
       }
     });
   });
